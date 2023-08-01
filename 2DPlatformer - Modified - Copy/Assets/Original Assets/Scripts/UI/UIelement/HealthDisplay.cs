@@ -14,6 +14,9 @@ public class HealthDisplay : UIelement
     // The previous health value to track changes in health
     private int previousHealth = -1;
 
+    // The coroutine handle for heart regeneration
+    private Coroutine regenerationCoroutine;
+
     /// <summary>
     /// Description:
     /// Updates this UI element
@@ -31,7 +34,11 @@ public class HealthDisplay : UIelement
             {
                 if (playerHealth.currentHealth != previousHealth)
                 {
-                    SetChildImageNumber(playerHealth.currentHealth);
+                    if (regenerationCoroutine != null)
+                    {
+                        StopCoroutine(regenerationCoroutine);
+                    }
+                    regenerationCoroutine = StartCoroutine(RegenerateHearts(playerHealth.currentHealth));
                     previousHealth = playerHealth.currentHealth;
                 }
             }
@@ -40,7 +47,68 @@ public class HealthDisplay : UIelement
 
     /// <summary>
     /// Description:
-    /// Deletes and spawns images until this game object has as many children as the player has health
+    /// Initialize the health display with hearts based on the player's starting health
+    /// Input: 
+    /// none
+    /// Return: 
+    /// void (no return)
+    /// </summary>
+    private void Start()
+    {
+        InitializeHearts();
+    }
+
+    /// <summary>
+    /// Description:
+    /// Initialize the health display with hearts based on the player's current health
+    /// Input: 
+    /// none
+    /// Return: 
+    /// void (no return)
+    /// </summary>
+    private void InitializeHearts()
+    {
+        if (GameManager.instance != null && GameManager.instance.player != null)
+        {
+            Health playerHealth = GameManager.instance.player.GetComponent<Health>();
+            if (playerHealth != null)
+            {
+                SetChildImageNumber(playerHealth.currentHealth);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Description:
+    /// Coroutine to regenerate hearts one at a time with a delay between each heart
+    /// Input: 
+    /// int targetHealth
+    /// Return: 
+    /// IEnumerator (coroutine)
+    /// </summary>
+    /// <param name="targetHealth">The target health value to reach</param>
+    private IEnumerator RegenerateHearts(int targetHealth)
+    {
+        int currentHealth = transform.childCount;
+
+        // If the target health is less than the current health, remove hearts
+        for (int i = currentHealth; i > targetHealth; i--)
+        {
+            Destroy(transform.GetChild(i - 1).gameObject);
+            yield return new WaitForSeconds(1f);
+        }
+
+        // If the target health is more than the current health, add hearts
+        for (int i = currentHealth; i < targetHealth; i++)
+        {
+            Instantiate(healthDisplayImage, transform);
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
+    /// <summary>
+    /// Description:
+    /// Deletes and spawns images until this gameobject has as many children as the player has health
     /// Input: 
     /// int
     /// Return: 
@@ -56,11 +124,13 @@ public class HealthDisplay : UIelement
 
         if (healthDisplayImage != null)
         {
-            for (int i = 0; i < number; i++)
+            if (number > 0)
             {
-                Instantiate(healthDisplayImage, transform);
+                for (int i = 0; i < number; i++)
+                {
+                    Instantiate(healthDisplayImage, transform);
+                }
             }
         }
     }
 }
-
