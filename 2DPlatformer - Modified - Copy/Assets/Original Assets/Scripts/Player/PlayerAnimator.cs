@@ -92,7 +92,7 @@ public class PlayerAnimator : MonoBehaviour
 
         if (playerController.state == PlayerController.PlayerState.Dead)
         {
-            animator.SetBool("isDead", true);
+            Destroy(gameObject);
         }
         else
         {
