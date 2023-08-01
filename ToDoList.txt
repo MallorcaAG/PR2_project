@@ -1,0 +1,12 @@
+Reskin enemies
+Reskin platforms
+Reskin tilemap
+Reskin HP to Wellbeing refer to Health Script attached to Player
+Implement Mediate function
+Reskin UI elements
+Reskin Keys and Doors
+Change Music and SFX
+Reskin MainMenu
+Add 3 Levels
+Implement Boss in last Level
+Organize all folder delete unnecessary files
