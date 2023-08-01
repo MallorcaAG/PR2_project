@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b58ca2f55b8d54e44921b14b727bf610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 5
+  lifetime: 1
   destroyChildrenOnDeath: 1
 --- !u!82 &1501934505331470816
 AudioSource:
@@ -56,7 +56,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 816f0f2b45aa4704d886e0374ae1e0e0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9892d69d2645e67409291e314ea97b78, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

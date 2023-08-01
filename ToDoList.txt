@@ -1,12 +1,12 @@
-Reskin enemies
+DONE			- Reskin enemies
 DONE			- Reskin platforms
-Somewhat Done		- Reskin tilemap		
-Reskin HP to Wellbeing refer to Health Script attached to Player
-Implement Mediate function
-Reskin UI elements
-Reskin Keys and Doors
-Change Music and SFX
-Reskin MainMenu
+Somewhat Done		- Reskin tilemap
+Somewhat Done		- Reskin HP to Wellbeing refer to Health Script attached to Player
+DONE			- Implement Mediate function
+DONE			- Reskin UI elements
+       No longer needed?- Reskin Keys and Doors
+90% (change Lose Jingle)- Change Music and SFX
+DONE			- Reskin MainMenu
 Add 3 Levels
 Implement Boss in last Level
 Organize all folder delete unnecessary files

@@ -10,10 +10,13 @@ public class HealthRegeneration : MonoBehaviour
     private PlayerController playerController;
     private float timeSinceLastMove = 0.0f;
 
+    public AudioSource regenSound;
+
     private void Start()
     {
         playerHealth = GetComponent<Health>();
         playerController = GetComponent<PlayerController>();
+
     }
 
     private void Update()
@@ -30,6 +33,7 @@ public class HealthRegeneration : MonoBehaviour
         if (timeSinceLastMove >= timeToStartRegen && playerHealth.currentHealth < playerHealth.maximumHealth)
         {
             RegenerateHealth();
+            regenSound.Play();
         }
     }
 
