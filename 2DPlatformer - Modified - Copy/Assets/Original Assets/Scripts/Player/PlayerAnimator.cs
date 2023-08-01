@@ -98,5 +98,15 @@ public class PlayerAnimator : MonoBehaviour
         {
             animator.SetBool("isDead", false);
         }
+
+        if (playerController.shootInput)
+        {
+            animator.SetBool("isShooting", true);
+        }
+        if(!playerController.shootInput)
+        {
+            animator.SetBool("isShooting", false);
+        }
     }
+
 }

@@ -17,6 +17,7 @@ public class ShootingController : MonoBehaviour
     [Tooltip("The transform in the heirarchy which holds projectiles if any")]
     public Transform projectileHolder = null;
 
+
     [Header("Input")]
     [Tooltip("Whether this shooting controller is controled by the player")]
     public bool isPlayerControlled = false;

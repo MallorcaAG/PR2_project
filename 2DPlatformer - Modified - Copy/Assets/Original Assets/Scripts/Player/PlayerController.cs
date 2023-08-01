@@ -98,6 +98,17 @@ public class PlayerController : MonoBehaviour
                 return false;
         }
     }
+
+    public bool shootInput
+    {
+        get
+        {
+            if (inputManager != null)
+                return inputManager.fireHeld;
+            else
+                return false;
+        }
+    }
     #endregion
     #endregion
 
@@ -258,6 +269,8 @@ public class PlayerController : MonoBehaviour
             StartCoroutine("Jump", 1.0f);
         }
     }
+
+
 
     /// <summary>
     /// Description:
