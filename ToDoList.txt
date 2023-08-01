@@ -1,6 +1,6 @@
 Reskin enemies
-Reskin platforms
-Reskin tilemap
+DONE			- Reskin platforms
+Somewhat Done		- Reskin tilemap		
 Reskin HP to Wellbeing refer to Health Script attached to Player
 Implement Mediate function
 Reskin UI elements
