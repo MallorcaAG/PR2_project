@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 /// <summary>
 /// Class intended to work with grid layout groups to create an image based health bar
@@ -9,16 +8,15 @@ using UnityEngine.UI;
 public class HealthDisplay : UIelement
 {
     [Header("Settings")]
-    [Tooltip("The image which represents one unit of health")]
+    [Tooltip("The image which represents one unit of health (heart sprite)")]
     public GameObject healthDisplayImage = null;
-    [Tooltip("The prefab to use to display the number")]
-    public GameObject numberDisplay = null;
-    [Tooltip("The maximum number of images to display before switching to just a number")]
-    public int maximumNumberToDisplay = 3;
+
+    // The previous health value to track changes in health
+    private int previousHealth = -1;
 
     /// <summary>
     /// Description:
-    /// Upadates this UI element
+    /// Updates this UI element
     /// Input: 
     /// none
     /// Return: 
@@ -31,14 +29,18 @@ public class HealthDisplay : UIelement
             Health playerHealth = GameManager.instance.player.GetComponent<Health>();
             if (playerHealth != null)
             {
-                SetChildImageNumber(playerHealth.currentHealth);
+                if (playerHealth.currentHealth != previousHealth)
+                {
+                    SetChildImageNumber(playerHealth.currentHealth);
+                    previousHealth = playerHealth.currentHealth;
+                }
             }
         }
     }
 
     /// <summary>
     /// Description:
-    /// Deletes and spawns images until this gameobject has as many children as the player has health
+    /// Deletes and spawns images until this game object has as many children as the player has health
     /// Input: 
     /// int
     /// Return: 
@@ -54,19 +56,11 @@ public class HealthDisplay : UIelement
 
         if (healthDisplayImage != null)
         {
-            if (maximumNumberToDisplay >= number)
-            {
-                for (int i = 0; i < number; i++)
-                {
-                    Instantiate(healthDisplayImage, transform);
-                }
-            }
-            else
+            for (int i = 0; i < number; i++)
             {
                 Instantiate(healthDisplayImage, transform);
-                GameObject createdNumberDisp = Instantiate(numberDisplay, transform);
-                createdNumberDisp.GetComponent<Text>().text = number.ToString();
             }
         }
     }
 }
+

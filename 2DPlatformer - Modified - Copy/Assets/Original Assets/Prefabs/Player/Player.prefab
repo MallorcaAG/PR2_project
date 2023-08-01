@@ -288,6 +288,7 @@ GameObject:
   - component: {fileID: 8128307141711142835}
   - component: {fileID: 8128307141711142836}
   - component: {fileID: 5168251848734213253}
+  - component: {fileID: 831046872263869318}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -389,9 +390,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamId: 0
-  defaultHealth: 2
-  maximumHealth: 5
-  currentHealth: 2
+  defaultHealth: 3
+  maximumHealth: 3
+  currentHealth: 3
   invincibilityTime: 2
   useLives: 1
   currentLives: 3
@@ -414,6 +415,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 8128307141711142835}
   animator: {fileID: 7496708756577783124}
+--- !u!114 &831046872263869318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8128307141711142832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85d4aa831be74d24ea3d9eebc09d0c6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthRegenRate: 0.5
+  timeToStartRegen: 2
 --- !u!1 &8128307142647824882
 GameObject:
   m_ObjectHideFlags: 0

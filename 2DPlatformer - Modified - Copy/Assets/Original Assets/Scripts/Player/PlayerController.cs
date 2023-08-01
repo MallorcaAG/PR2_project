@@ -133,6 +133,9 @@ public class PlayerController : MonoBehaviour
     private int timesJumped = 0;
     // Whether the player is in the middle of a jump right now
     private bool jumping = false;
+
+    //reference to the HealthRegeneration component
+    private HealthRegeneration healthRegeneration;
     #endregion
 
     #region Player State Variables
@@ -167,6 +170,8 @@ public class PlayerController : MonoBehaviour
     {
         SetupRigidbody();
         SetUpInputManager();
+
+        healthRegeneration = GetComponent<HealthRegeneration>();
     }
 
     /// <summary>
@@ -183,6 +188,16 @@ public class PlayerController : MonoBehaviour
         ProcessInput();
         HandleSpriteDirection();
         DetermineState();
+
+        if (healthRegeneration != null)
+        {
+            healthRegeneration.enabled = IsStandingStill();
+        }
+    }
+
+    private bool IsStandingStill()
+    {
+        return grounded && horizontalMovementInput == 0;
     }
     #endregion
 
