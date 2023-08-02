@@ -24,7 +24,7 @@ public class EnemyManager : MonoBehaviour
     {
         enemyAnim.SetTrigger("Taunt");
 
-        yield return new WaitForSeconds(Random.Range(2, 6));
+        yield return new WaitForSeconds(Random.Range(8, 12));
 
         StartCoroutine(Taunt());
     }
