@@ -31,7 +31,7 @@ public class Damage : MonoBehaviour
     /// Return:
     /// void (no return)
     /// </summary>
-    /// <param name="collision">The collider that entered the trigger<</param>
+    /// <param name="collision">The collider that entered the trigger</param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (dealDamageOnTriggerEnter)

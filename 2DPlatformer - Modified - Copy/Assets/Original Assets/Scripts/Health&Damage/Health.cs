@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// This class handles the health state of a game object.
@@ -33,6 +34,10 @@ public class Health : MonoBehaviour
     public int maximumLives = 5;
     [Tooltip("The amount of time to wait before respawning")]
     public float respawnWaitTime = 3f;
+
+    [Header("UI References")]
+    public Slider sanitySlider; // Reference to the Sanity bar's Slider component in the UI Canvas.
+
 
     /// <summary>
     /// Description:
@@ -162,6 +167,12 @@ public class Health : MonoBehaviour
             isInvincible = true;
             currentHealth -= damageAmount;
             CheckDeath();
+
+            if (sanitySlider != null)
+            {
+                int newSanityValue = (int)(sanitySlider.value - 10); // Explicit cast from float to int
+                sanitySlider.value = Mathf.Max(newSanityValue, 0); // Ensure sanity value doesn't go below 0.
+            }
         }
         GameManager.UpdateUIElements();
     }
