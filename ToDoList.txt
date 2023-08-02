@@ -7,6 +7,6 @@ DONE			- Reskin UI elements
        No longer needed?- Reskin Keys and Doors
 90% (change Lose Jingle)- Change Music and SFX
 DONE			- Reskin MainMenu
-Add 3 Levels
-Implement Boss in last Level
+DONE			- Add 3 Levels
+DONE			- Implement Boss in last Level
 Organize all folder delete unnecessary files
