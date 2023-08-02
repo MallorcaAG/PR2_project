@@ -1865,6 +1865,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game UI Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6027391878390376619, guid: 6b278329ac77eb7438a3ac3a58e97860, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6027391878886706003, guid: 6b278329ac77eb7438a3ac3a58e97860, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2298,11 +2302,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3711374127831442309, guid: a118dce1ddf018f4dbb7067fa6aa80a6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.256057
+      value: 7.986057
       objectReference: {fileID: 0}
     - target: {fileID: 3711374127831442309, guid: a118dce1ddf018f4dbb7067fa6aa80a6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.655951
+      value: 14.73595
       objectReference: {fileID: 0}
     - target: {fileID: 3711374127831442309, guid: a118dce1ddf018f4dbb7067fa6aa80a6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6763,11 +6767,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4994616923471830426, guid: 4c42f1edb9acc384b98ea8147debd7a4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.2
+      value: 7.93
       objectReference: {fileID: 0}
     - target: {fileID: 4994616923471830426, guid: 4c42f1edb9acc384b98ea8147debd7a4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.36
+      value: 18.44
       objectReference: {fileID: 0}
     - target: {fileID: 4994616923471830426, guid: 4c42f1edb9acc384b98ea8147debd7a4, type: 3}
       propertyPath: m_LocalPosition.z
