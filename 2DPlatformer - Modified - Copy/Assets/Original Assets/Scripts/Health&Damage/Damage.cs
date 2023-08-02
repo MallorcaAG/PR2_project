@@ -91,7 +91,12 @@ public class Damage : MonoBehaviour
         {
             if (collidedHealth.teamId != this.teamId)
             {
-                collidedHealth.TakeDamage(damageAmount);
+                // Check if the character is taking double damage based on Sanity value
+                int actualDamageAmount = collidedHealth.GetSanityValue() <= 40 ? damageAmount * 2 : damageAmount;
+
+                // Pass the actualDamageAmount to TakeDamage method
+                collidedHealth.TakeDamage(actualDamageAmount);
+
                 if (destroyAfterDamage)
                 {
                     Destroy(this.gameObject);
@@ -99,4 +104,6 @@ public class Damage : MonoBehaviour
             }
         }
     }
+
+
 }

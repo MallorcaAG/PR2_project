@@ -38,6 +38,8 @@ public class Health : MonoBehaviour
     [Header("UI References")]
     public Slider sanitySlider; // Reference to the Sanity bar's Slider component in the UI Canvas.
 
+    private bool isTakingDoubleDamage = false;
+
 
     /// <summary>
     /// Description:
@@ -142,6 +144,14 @@ public class Health : MonoBehaviour
         GameManager.UpdateUIElements();
     }
 
+    public int GetSanityValue()
+    {
+        if (sanitySlider != null)
+        {
+            return (int)sanitySlider.value;
+        }
+        return 100; // Assuming the Sanity bar is at maximum value (100) when the slider reference is not available.
+    }
     /// <summary>
     /// Description:
     /// Applies damage to the health unless the health is invincible.
@@ -173,6 +183,19 @@ public class Health : MonoBehaviour
                 int newSanityValue = (int)(sanitySlider.value - 10); // Explicit cast from float to int
                 sanitySlider.value = Mathf.Max(newSanityValue, 0); // Ensure sanity value doesn't go below 0.
             }
+
+            if (sanitySlider != null && sanitySlider.value <= 40)
+            {
+                isTakingDoubleDamage = true;
+            }
+            else
+            {
+                isTakingDoubleDamage = false;
+            }
+
+            // Apply double damage if necessary
+            int actualDamageAmount = isTakingDoubleDamage ? damageAmount * 2 : damageAmount;
+
         }
         GameManager.UpdateUIElements();
     }
